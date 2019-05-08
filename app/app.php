@@ -30,7 +30,7 @@ class App{
                 include substr($_GET['k'], strpos($_GET['k'], "/json" ) ) ;
 			}else{
 						if(file_exists(CONTROLLERS.self::$controller.".php" )){
-								
+								var_dump(CONTROLLERS."/".self::$controller . ".php");exit();
 							require_once(CONTROLLERS."/".self::$controller . ".php");
 							self::$controller  = new self::$controller;
 					

@@ -7,7 +7,6 @@ abstract class Model{
         if(!isset($this->table)){
             $this->table = strtolower(str_replace("Model","",get_class($this)));
         }       
-
         return $this->table;
     }
     

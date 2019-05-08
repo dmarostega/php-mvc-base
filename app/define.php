@@ -3,8 +3,8 @@
 /*  DATABASE    */
 define("DB_HOST","localhost");
 define("DB_NAME","base-empty");
-define('DB_USER',"postgres");
-define("DB_PASSWORD","hd3Pnx");
+define('DB_USER',"root");
+define("DB_PASSWORD","");
 
 define('BASE',dirname(__FILE__)."/Database.php");
 

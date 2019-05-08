@@ -86,7 +86,7 @@
                         <label for="typeuser">Categoria</label>
                         <select id="typeuser" name="idtypeuser" required>                    
                             <option value="">Selecione</option>
-                            <?php foreach(DB::results("SELECT * FROM public.typeuser ORDER BY id ASC ") as $v){ ?>
+                            <?php foreach(DB::results("SELECT * FROM typeuser ORDER BY id ASC ") as $v){ ?>
                              <option value="<?php echo $v->id; ?>"><?php echo $v->name; ?></option>                    
                             <?php } ?>
                         </select>                                

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="pt-br">
-    <head>user
+    <head>
         <title> Sys Market  </title>
         <meta charset="utf-8">
         <meta name="author" content="Diogo Marostega de Oliveira   ">
@@ -56,8 +56,7 @@
                     </li> 
                 </ul>
             </nav>          
-        <main>
-            <?php ?>
+        <main>            
             <table class="table">
                 <thead></thead>
                 <tfoot>                                                  

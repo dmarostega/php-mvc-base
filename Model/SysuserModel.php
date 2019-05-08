@@ -9,28 +9,32 @@ class SysuserModel extends Model{
         $strInsert = "INSERT INTO ".$this->table." (name,username,password, idtypeuser) VALUES (:name, :username, :password, :idtypeuser); ";
 
         DB::insert($strInsert,array(
-            $this->name,
-            $this->username,
-            $this->password,
-            $this->idtypeuser
+           ':name' => $this->name,
+           ':username' => $this->username,
+           ':password' => $this->password,
+           ':idtypeuser' => $this->idtypeuser
         ));        
     }
     
     public function update($id){
-         $strUpdate = "UPDATE ".$this->table." SET name = :name, username = :username, password = :password, idtypeuser = :idtypeuser, updated_at = :updated WHERE id = :id; ";
+         $strUpdate = "UPDATE ".$this->table." SET  name = :name,
+                                                    username = :username,
+                                                    password = :password,
+                                                    idtypeuser = :idtypeuser,                                                    
+                                                    WHERE 
+                                                    id = :id; ";
 
         DB::update($strUpdate,array(
-                        $this->name,
-                        $this->username,
-                        $this->password,
-                        $this->idtypeuser,
-                        date("Y-m-d"),
-                        $id
+                        ':name' => $this->name,
+                        ':username' => $this->username,
+                        ':password' => $this->password,
+                        ':idtypeuser' => $this->idtypeuser,
+                        ':id' => $id
                     ));
     }
     
     public function delete($id){
         $strUpdate = "DELETE FROM ".$this->table." WHERE id = :id; ";        
-        DB::execution($strUpdate,array($id));
+        DB::execution($strUpdate,array(':id' => $id));
     }
 }
