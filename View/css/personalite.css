@@ -3,6 +3,22 @@
     margin:0;
 }
 
+main{
+    width: 90%;
+    margin:auto;
+}
+form{
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+}
+
+label,div,input,select{
+    display:block;
+    width: 50%;
+    margin: auto;
+}
+
 a{
     text-decoration: none;
     color: white;
@@ -44,7 +60,7 @@ footer p{
 input:focus{
     outline: none;
 }
-input[type="text"],input[type="number"],select{
+input[type="text"],input[type="password"],input[type="number"],select{
     padding:5px;
     border:2px solid transparent;
     border-radius: 5px;

@@ -8,21 +8,7 @@
         <meta name="keywords" content="php, mvc, base, sistema web">
         <link  rel="stylesheet" type="text/css"  href="../view/css/personalite.css">
         <style>
-            main{
-                width: 90%;
-                margin:auto;
-            }
-            form{
-                width: 90%;
-                margin: auto;
-                padding: 15px;
-            }
-            
-            label,div,input,select{
-                display:block;
-                width: 50%;
-                margin: auto;
-            }
+     
         </style>
 
     </head>
@@ -65,14 +51,14 @@
                         <input type="text" id="id" name="id" value="<?php echo $data->id; ?>" readonly>
                 
                         <label for="name">Nome:</label>
-                        <input type="text" id="name" name="name" value="<?php echo $data->id; ?>" placeholder="Nome" required>
+                        <input type="text" id="name" name="name" value="<?php echo $data->name; ?>" placeholder="Nome" required>
                     </div>
                     <div class="col col-2">
                         <label for="username">Usename</label>
-                        <input type="text" id="username" name="username" value="<?php echo $data->id; ?>" placeholder="Nome de  usuário">
+                        <input type="text" id="username" name="username" value="<?php echo $data->username; ?>" placeholder="Nome de  usuário">
 
                         <label for="password">Password</label>
-                        <input type="text" id="password" name="password" value="<?php echo $data->id; ?>" password="Valor" placeholder="Senha do usuário" required>
+                        <input type="password" id="password" name="password" value="<?php echo $data->password; ?>" password="Valor" placeholder="Senha do usuário" required>
                 
                     </div>
                 </div>

@@ -21,7 +21,7 @@ class SysuserController extends Controller{
         }else{
             parent::model()->update(intval($id["id"]));
         }        
-        header("Location: /".DOMAIN."/User/listar"); 
+        header("Location: /".DOMAIN."/sysuser/listar"); 
     }
     
     public function listar(){
