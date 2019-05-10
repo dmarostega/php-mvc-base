@@ -1,22 +1,49 @@
 <?php
 
+abstract class Has{
 
-class Link{
-    private $as;
-    private $charset;
-    /*  HTML5 */
-    private $crossorigin;
-    private $disabled = false;
-    private $href;
-    private $hreflnag;
-    private $media;
-    private $methods;
-    private $rel;
-    /*  HTML5 */
-    private $sizes;
+    private function writeAttr($key,$value){
+         return $key. '=' . "\"$value\"";
+    }
+
+    protected function Is(){
+        $arrAttr=array();
+        foreach(get_class_vars(get_class($this)) as $k => $attr){
+            if($attr!=NULL){
+               array_push($arrAttr,$this->writeAttr($k,$attr) );               
+            }
+        }
+            return "<". strtolower(get_class($this))." ".implode(' ',$arrAttr).">";
+    }
 }
 
-class Script{
+class Link extends Has{
+    protected $as;
+    protected $charset = 'UTF-8';
+    /*  HTML5 */
+    protected $crossorigin;
+    protected $disabled = false;
+    protected $href = 'default.css';
+    protected $hreflnag;
+    protected $media;
+    protected $methods;
+    protected $rel = 'stylesheet';
+    /*  HTML5 */
+    protected $sizes;
+    protected $target;
+    protected $type = 'text/css';
+    protected $title = '';
+
+    public function __get($name){
+     //   echo "<p>".$name."</p>";
+    }
+
+    public function Run(){
+        echo self::Is();
+    }
+}
+
+class Script extends Has{
     /*  HTML5 */
     private $async;
     private $defer;
@@ -28,6 +55,10 @@ class Script{
     private $type;
     private $charset;
     private $language;
+
+    public function Run(){
+        echo self::Is();
+    }
 }
 
 class View {
