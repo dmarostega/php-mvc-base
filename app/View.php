@@ -3,17 +3,18 @@
 abstract class Has{
 
     private function writeAttr($key,$value){
-         return $key. '=' . "\"$value\"";
+         return $key. '=' . "\"".$value."\"";
     }
 
-    protected function Is(){
+    protected function Is($typeContent=false){
+        $tagName = strtolower(get_class($this));        
         $arrAttr=array();
-        foreach(get_class_vars(get_class($this)) as $k => $attr){
-            if($attr!=NULL){
-               array_push($arrAttr,$this->writeAttr($k,$attr) );               
+        foreach($this as $attr => $value){
+            if($value!=NULL){
+               array_push($arrAttr,$this->writeAttr($attr,$value) );               
             }
         }
-            return "<". strtolower(get_class($this))." ".implode(' ',$arrAttr).">";
+        return "<$tagName ".implode(' ',$arrAttr)."> \n".  ($typeContent ? '</'.$tagName.'>' : null );
     }
 }
 
@@ -33,31 +34,44 @@ class Link extends Has{
     protected $target;
     protected $type = 'text/css';
     protected $title = '';
+    private $cont=0;
 
     public function __get($name){
-     //   echo "<p>".$name."</p>";
+        return (property_exists($this,$name) ? $this->$name : '' );
+    }
+
+    public function __set($name,$value){
+       if(property_exists($this,$name) ){   $this->$name = $value; }
     }
 
     public function Run(){
-        echo self::Is();
+        echo $this->Is();
     }
 }
 
 class Script extends Has{
     /*  HTML5 */
-    private $async;
-    private $defer;
-    private $integrity;
-    private $nomodule;
-    private $nonce;
-    private $referrerpolicy;
-    private $src;
-    private $type;
-    private $charset;
-    private $language;
+    protected $async;
+    protected $defer;
+    protected $integrity;
+    protected $nomodule;
+    protected $nonce;
+    protected $referrerpolicy;
+    protected $src;
+    protected $type;
+    protected $charset;
+    protected $language;
+
+    public function __get($name){
+        return (property_exists($this,$name) ? $this->$name : '' );
+    }
+
+    public function __set($name,$value){
+       if(property_exists($this,$name) ){   $this->$name = $value; }
+    }
 
     public function Run(){
-        echo self::Is();
+        echo self::Is(true);
     }
 }
 
@@ -66,4 +80,8 @@ class View {
     private $js;
     private $template = 'default.html';
     private $data;
+
+//    $strView = VIEWS.strtolower(str_replace('Controller','',get_called_class())."/".$view.".php");
+    
+
 }
