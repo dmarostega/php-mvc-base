@@ -9,8 +9,39 @@
         <meta name="viewport" contet="width=devece-width">              
      </head>
     <body>
-        <nav></nav>
-        <header></header>
+        <nav>
+            <ul>
+                <li class="drop-down">
+                    <a href="#">Cadastros</a>
+                    <ul>
+                        <li>
+                            <a href="/<?php echo DOMAIN;?>/sysuser/cadastrar">Usuário</a>
+                        </li>
+                        <li>
+                            <a href="/<?php echo DOMAIN;?>/typeuser/cadastrar">Tipos de usuário</a>
+                        </li>                            
+                    </ul>
+                </li>
+                
+                <li  class="drop-down">
+                    <a href="#">Listagens</a>
+                    <ul>
+                        <li>
+                            <a href="/<?php echo DOMAIN;?>/sysuser/listar">Usuários</a>
+                        </li>
+                        <li>
+                            <a href="/<?php echo DOMAIN;?>/typeuser/listar">Tipos de Usuários</a>
+                        </li>
+                    </ul>                       
+                </li> 
+              <li  class="drop-down">
+                    <a href="/<?php echo DOMAIN;?>">Inicio</a>  
+                </li> 
+            </ul>
+        </nav>
+        <header>
+        </header>
+        <content>
         <footer></footer>
     </body>
 </html>

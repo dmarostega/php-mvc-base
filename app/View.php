@@ -41,11 +41,11 @@ class Link extends Has{
     }
 
     public function __set($name,$value){
-       if(property_exists($this,$name) ){   $this->$name = $value; }
+       if(property_exists($this,$name) ){  $this->$name = $value;  }
     }
 
     public function Run(){
-        echo $this->Is();
+        return $this->Is();
     }
 }
 
@@ -71,17 +71,28 @@ class Script extends Has{
     }
 
     public function Run(){
-        echo self::Is(true);
+        self::Is(true);
     }
 }
 
 class View {
     private $css;
     private $js;
-    private $template = 'default.html';
-    private $data;
+    private static $template = 'default.html';
+    private $content='content undefined!';
+    private static $data;
+    private $pathView;
 
 //    $strView = VIEWS.strtolower(str_replace('Controller','',get_called_class())."/".$view.".php");
     
-
+    public static function Render($pathView,$data){
+        $link = new Link();
+        $link->href="css/modernize.css";
+        
+        require($pathView);   
+           
+        $fileTemplate = file_get_contents("View/templates/".self::$template);
+        $fileTemplate = substr_replace($fileTemplate,$link->Run(),strpos($fileTemplate, "<head>")+6,1);
+        echo substr_replace($fileTemplate,ob_get_clean(),strpos($fileTemplate, "<content>"),strlen("<content>"));
+    } 
 }

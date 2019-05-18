@@ -1,15 +1,16 @@
 <?php
-
+require_once "View.php"
+;
 abstract class  Controller{
 	public function __construct(){
 	}
 	
 	public static function View($view,$data){
         
-        $strView = VIEWS.strtolower(str_replace('Controller','',get_called_class())."/".$view.".php");
-        
-        if(file_exists($strView) ){
-            require($strView);
+        $strView = VIEWS.strtolower(str_replace('Controller','',get_called_class())."/".$view.".php");        
+		
+		if(	file_exists($strView) ){
+			View::Render($strView,$data);
         }else{
             die("View Inexistente!!!");
         }		
