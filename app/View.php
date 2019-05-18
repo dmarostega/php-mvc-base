@@ -87,7 +87,7 @@ class View {
     
     public static function Render($pathView,$data){
         $link = new Link();
-        $link->href="css/modernize.css";
+        $link->href="../view/css/personalite.css";
         
         require($pathView);   
            
