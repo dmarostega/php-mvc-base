@@ -16,7 +16,9 @@
                 <input type="password" id="password" name="password" value="<?php echo $data->password; ?>" password="Valor" placeholder="Senha do usuário" required>
         
             </div>
-        </div>                
+        </div>
+
+                
         <div class="row">
             <div class="col col-2">
                 <label for="typeuser">Categoria</label>
@@ -35,7 +37,7 @@
         <div class="buttons-box">
             <button class="btn btn-save" type="submit" >Salvar</button>
 <!--                <button class="btn btn-reset" type="reset" >Limpar</button>-->
-            <button class="btn btn-cancel" onclick="window.location.href='/<?php echo DOMAIN; ?>/sysuser/listar'" type="button" >Cancelar</button>                
+            <button class="btn btn-cancel"  type="button" >Cancelar</button>                
         </div>
     </form>            
 </main>

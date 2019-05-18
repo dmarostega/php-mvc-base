@@ -20,10 +20,12 @@ class SysuserModel extends Model{
          $strUpdate = "UPDATE ".$this->table." SET  name = :name,
                                                     username = :username,
                                                     password = :password,
-                                                    idtypeuser = :idtypeuser,                                                    
+                                                    idtypeuser = :idtypeuser                                                   
                                                     WHERE 
                                                     id = :id; ";
 
+
+       // var_dump($strUpdate);exit();
         DB::update($strUpdate,array(
                         ':name' => $this->name,
                         ':username' => $this->username,
