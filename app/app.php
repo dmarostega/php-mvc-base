@@ -22,9 +22,7 @@ class App{
             }elseif(isset($_GET["k"]) && strpos($_GET["k"],	"json") ) {		
                 include substr($_GET['k'], strpos($_GET['k'], "/json" ) ) ;
 			}else{
-						if(file_exists(CONTROLLERS."\\".self::$controller.".php" )){
-							//	echo realpath(CONTROLLERS."/".self::$controller . ".php");
-							//	exit();
+						if(file_exists(CONTROLLERS."/".self::$controller.".php" )){
 							require_once(CONTROLLERS."/".self::$controller . ".php");
 							self::$controller  = new self::$controller;
 					
@@ -37,7 +35,7 @@ class App{
 								echo "<p>Action inexistente!!!</p>";
 							}			
 						}else{ 
-							echo "<p> ssssController Inexistente!!! </p"; 
+							echo "<p> Controller Inexistente!!! </p"; 
 						}
 			} 
 	}

@@ -19,6 +19,4 @@ define("APP","app/");
 
 define("DOMAIN","php-base-mvc");
 
-$_CSS=[];
-$_JS=[];
 

@@ -62,6 +62,7 @@ class Script extends Has{
     protected $charset;
     protected $language;
 
+  
     public function __get($name){
         return (property_exists($this,$name) ? $this->$name : '' );
     }
@@ -76,23 +77,32 @@ class Script extends Has{
 }
 
 class View {
-    private $css;
-    private $js;
-    private static $template = 'default.html';
-    private $content='content undefined!';
+    private static $css;
+    private static $js;
+    private static $template = "View/templates/".'default.html';
+    private $content = 'content undefined!';
     private static $data;
     private $pathView;
 
-//    $strView = VIEWS.strtolower(str_replace('Controller','',get_called_class())."/".$view.".php");
-    
+    public static function setTemplate($pathNewTemplate){
+        if(file_exists("View/templates/".$pathNewTemplate)){
+            self::$template="View/templates/".$pathNewTemplate;
+        }
+    }
+   
     public static function Render($pathView,$data){
+
         $link = new Link();
         $link->href="../view/css/personalite.css";
         
-        require($pathView);   
-           
-        $fileTemplate = file_get_contents("View/templates/".self::$template);
-        $fileTemplate = substr_replace($fileTemplate,$link->Run(),strpos($fileTemplate, "<head>")+6,1);
-        echo substr_replace($fileTemplate,ob_get_clean(),strpos($fileTemplate, "<content>"),strlen("<content>"));
+        $fileTemplate=file_get_contents("View/templates/error-404.html");
+
+        if(	file_exists($pathView) ){
+            require($pathView);   
+            $fileTemplate = file_get_contents(self::$template);
+            $fileTemplate = substr_replace($fileTemplate,$link->Run(),strpos($fileTemplate, "<head>")+6,1);
+            $fileTemplate = substr_replace($fileTemplate,ob_get_clean(),strpos($fileTemplate, "<content>"),strlen("<content>"));
+        }
+        echo $fileTemplate;        
     } 
 }

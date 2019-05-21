@@ -12,7 +12,7 @@ class DB{
 				//self::$instance = new PDO($strCon);
 				
 				/* 	MYSQL */
-				$strCon="mysql:host=localhost;dbname=".DB_NAME;        
+				$strCon="mysql:host=".DB_HOST.";dbname=".DB_NAME;        
 			
 				self::$instance = new PDO($strCon, DB_USER, DB_PASSWORD);
                 
