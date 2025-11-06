@@ -1,13 +1,17 @@
 # Facile Contracts - Cadastro de Contratos 
 
-Pequeno projeto para apresentação de listagem de contratos. Porém alem do solicitado, permite:
+Pequeno projeto para apresentação de listagem de contratos. 
+<img width="1910" height="880" alt="image" src="https://github.com/user-attachments/assets/46dacc2f-cd78-4120-9af6-668c759507b8" />
 
+Publicado EM: https://tester.rockcodelabs.com.br/
+
+Porém alem do solicitado, permite:
  1. Criar Tabelas
- 2. Popular Tabelas
+ 2. Popular Tabelas (cria 10 itens de cadas a cada execução do menu)
  3. Apagar Tabelas
  4. Limpar Tabelas
 
-##Resultado Principal, apresentar: [PENDENTE] 
+##Resultado Principal, apresentar:  Ambos estão em ```C:\wamp64\www\facile-contracts\Controller\ContractController.php```
 1. Lista de contratos no seguinte formato (Teste 01):
      nome do banco
      verba
