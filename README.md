@@ -11,7 +11,7 @@ Porém alem do solicitado, permite:
  3. Apagar Tabelas
  4. Limpar Tabelas
 
-##Resultado Principal, apresentar:  Ambos estão em ```C:\wamp64\www\facile-contracts\Controller\ContractController.php```
+## Resultado Principal, apresentar:  Ambos estão em ```C:\wamp64\www\facile-contracts\Controller\ContractController.php```
 1. Lista de contratos no seguinte formato (Teste 01):
      nome do banco
      verba
@@ -27,7 +27,7 @@ Porém alem do solicitado, permite:
   . soma do valor dos contratos neste agrupamento
   (g) = campos agrupados
 
-##  Ambiente de Desenvolvimento
+## Ambiente de Desenvolvimento
 1. Windows 11
 2. VS Code v. 1.105.1
 3. WampServer 3.3.7
